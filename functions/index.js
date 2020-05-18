@@ -16,6 +16,7 @@ const {
   editTodo,
 } = require("./APIs/todos");
 const { loginUser } = require("./APIs/users");
+const { signUpUser } = require("./APIs/users");
 
 // Todos
 app.get("/todos", getAllTodos);
@@ -25,5 +26,6 @@ app.put("/todo/:todoId", editTodo);
 
 // Users
 app.post("/login", loginUser);
+app.post("/signup", signUpUser);
 
 exports.api = functions.https.onRequest(app);
