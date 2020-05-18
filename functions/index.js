@@ -15,8 +15,7 @@ const {
   deleteTodo,
   editTodo,
 } = require("./APIs/todos");
-const { loginUser } = require("./APIs/users");
-const { signUpUser } = require("./APIs/users");
+const { loginUser, signUpUser } = require("./APIs/users");
 
 // Todos
 app.get("/todos", getAllTodos);
