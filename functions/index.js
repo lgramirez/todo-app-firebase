@@ -20,6 +20,7 @@ const {
   signUpUser,
   uploadProfilePhoto,
   getUserDetail,
+  updateUserDetails,
 } = require("./APIs/users");
 const auth = require("./util/auth");
 
@@ -34,5 +35,6 @@ app.post("/login", loginUser);
 app.post("/signup", signUpUser);
 app.post("/user/image", auth, uploadProfilePhoto);
 app.get("/user", auth, getUserDetail);
+app.post("/user", auth, updateUserDetails);
 
 exports.api = functions.https.onRequest(app);
