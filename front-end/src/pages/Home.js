@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Account from "../components/Account";
-import Todo from "../component/Todo";
-import { authMiddleware } from "../util/auth";
+import Todo from "../components/Todo";
+import { authMiddleWare } from "../util/auth";
 import {
   Drawer,
   AppBar,
@@ -54,7 +54,7 @@ const styles = (theme) => ({
     left: "50%",
     top: "35%",
   },
-  toolBar: theme.mixings.toolbal,
+  toolBar: theme.mixins.toolbal,
 });
 
 class Home extends Component {
@@ -88,7 +88,7 @@ class Home extends Component {
   }
 
   componentWillMount = () => {
-    authMiddleware(this.props.history);
+    authMiddleWare(this.props.history);
     const authToken = localStorage.getItem("AuthToken");
     axios.defaults.headers.common = { Authorization: authToken };
     axios
@@ -141,30 +141,30 @@ class Home extends Component {
             classes={{ paper: classes.drawerPaper }}
           >
             <div className={classes.toolBar} />
-            <Divider>
-              <center>
-                <Avatar
-                  src={this.state.profilePicture}
-                  className={classes.avatar}
-                />
-                <p>
-                  {" "}
-                  {this.state.firstName} {this.state.lastName}
-                </p>
-              </center>
-            </Divider>
+            <Divider />
+            <center>
+              <Avatar
+                src={this.state.profilePicture}
+                className={classes.avatar}
+              />
+              <p>
+                {" "}
+                {this.state.firstName} {this.state.lastName}
+              </p>
+            </center>
+            <Divider />
             <List>
               <ListItem button key="Todo" onClick={this.loadTodoPage}>
                 <ListItemIcon>
                   {" "}
-                  <NotesIcon />{" "}
+                  <Notes />{" "}
                 </ListItemIcon>
                 <ListItemText primary="Todo" />
               </ListItem>
               <ListItem button key="Account" onClick={this.loadAccountPage}>
                 <ListItemIcon>
                   {" "}
-                  <AccountBoxIcon />{" "}
+                  <AccountBox />{" "}
                 </ListItemIcon>
                 <ListItemText primary="Account" />
               </ListItem>
