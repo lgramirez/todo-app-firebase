@@ -82,7 +82,7 @@ class Home extends Component {
       firstName: "",
       lastName: "",
       profilePicture: "",
-      uiLoading: false,
+      uiLoading: true,
       imageLoading: false,
     };
   }
